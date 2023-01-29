@@ -1,6 +1,6 @@
 export class Priority {
   id: number;
-  title: string;
+  title: string = "";
   color: string;
 
   constructor(id: number, title: string, color: string) {

@@ -1,6 +1,6 @@
 export class Category {
   id: number;
-  title: string;
+  title: string = "";
 
   constructor(id: number, title: string) {
     this.id = id;

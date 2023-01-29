@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataHandlerService} from "../../services/data-handler.service";
 import {Category} from "../../model/Category";
+import {Task} from "../../model/Task";
 
 @Component({
   selector: 'app-categories',

@@ -26,7 +26,7 @@ export class TestData {
       title: 'Залить бензин',
       priority: TestData.priority[2],
       completed: false,
-      category: TestData.categories[9],
+      category: TestData.categories[1],
       date: new Date('2019-04-10')
     },
     {
@@ -42,7 +42,7 @@ export class TestData {
       title: 'Залить бензин3',
       priority: TestData.priority[3],
       completed: false,
-      category: TestData.categories[4],
+      category: TestData.categories[3],
       date: new Date('2019-04-10')
     }
   ]
