@@ -11,6 +11,7 @@ import {Task} from "../../model/Task";
 export class CategoriesComponent implements OnInit {
 
   categories: Category[] | undefined;
+  selectedCategory: Category;
 
   constructor(private dataHandler: DataHandlerService) {
 
@@ -22,5 +23,6 @@ export class CategoriesComponent implements OnInit {
 
   showTaskByCategory(category: Category) {
     this.dataHandler.fillTasksByCategory(category);
+    this.selectedCategory = category;
   }
 }

@@ -44,6 +44,13 @@ export class TestData {
       completed: false,
       category: TestData.categories[3],
       date: new Date('2019-04-10')
+    },
+    {
+      id: 4,
+      title: 'Залить бензин4',
+      completed: false,
+      category: TestData.categories[3],
+      date: new Date('2019-04-10')
     }
   ]
 }

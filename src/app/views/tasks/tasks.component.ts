@@ -18,4 +18,7 @@ export class TasksComponent implements OnInit{
   }
 
 
+  taskComplete(task: Task) {
+    task.completed = !task.completed
+  }
 }
