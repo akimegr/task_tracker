@@ -25,3 +25,27 @@
 .demo-row-is-clicked {
   font-weight: bold;
 }
+
+.color {
+  width: 2%;
+}
+.num {
+  width: 5%;
+}
+.name {
+  width: 43%;
+  text-align: center;
+}
+
+.priority {
+  width: 15%;
+}
+.category {
+  width: 15%;
+}
+.date {
+  width: 10%;
+}
+.done {
+  width: 15%;
+}
