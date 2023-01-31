@@ -35,7 +35,8 @@ export class TestData {
       priority: TestData.priority[1],
       completed: true,
       category: TestData.categories[4],
-      date: new Date('2019-04-10')
+      date: new Date('2019-04-10'),
+      color: "#F8F9FA"
     },
     {
       id: 3,
@@ -43,13 +44,15 @@ export class TestData {
       priority: TestData.priority[3],
       completed: false,
       category: TestData.categories[3],
-      date: new Date('2019-04-10')
+      date: new Date('2019-04-10'),
+      color: "#F8F9FA"
     },
     {
       id: 4,
       title: 'Залить бензин4',
       completed: false,
-      date: new Date('2019-04-10')
+      date: new Date('2019-04-10'),
+      color: "#F8F9FA"
     }
   ]
 }

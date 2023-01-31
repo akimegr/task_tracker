@@ -8,6 +8,7 @@ export class Task {
   category?: Category;
   date?: Date;
   completed: boolean;
+  color?: string;
 
   constructor(id: number,  title: string, completed: boolean, priority?: Priority, category?: Category, date?: Date) {
     this.id = id;

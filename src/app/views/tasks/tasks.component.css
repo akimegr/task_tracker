@@ -27,13 +27,13 @@
 }
 
 .color {
-  width: 2%;
+  width: 0.2%;
 }
 .num {
-  width: 5%;
+  width: 7%;
 }
 .name {
-  width: 43%;
+  width: 40%;
   text-align: center;
 }
 
@@ -44,7 +44,7 @@
   width: 15%;
 }
 .date {
-  width: 10%;
+  width: 12%;
 }
 .done {
   width: 15%;

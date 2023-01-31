@@ -42,6 +42,9 @@ export class TasksComponent implements OnInit{
     this.dataHandler.taskSubject.subscribe(tasks => this.tasks=tasks);
   }
 
+  getTaskColor(task:Task): string {
+    return task.color==null ? "#F8F9FA" : task.color;
+  }
 
   taskComplete(task: Task) {
     task.completed = !task.completed

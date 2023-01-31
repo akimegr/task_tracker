@@ -6,7 +6,7 @@
 
         <ng-container matColumnDef="color">
           <th mat-header-cell *matHeaderCellDef></th>
-          <td class="color" mat-cell *matCellDef="let element">{{element.position}}</td>
+          <td [style.background-color]="getTaskColor(element)"  class="color" mat-cell *matCellDef="let element"></td>
         </ng-container>
 
         <ng-container matColumnDef="position">
