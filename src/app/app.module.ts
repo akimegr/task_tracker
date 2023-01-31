@@ -8,6 +8,7 @@ import { TasksComponent } from './views/tasks/tasks.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatSliderModule} from '@angular/material/slider'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -18,10 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     CategoriesComponent,
-    TasksComponent
+    TasksComponent,
   ],
   imports: [
     BrowserModule,
+    MatSliderModule,
     AppRoutingModule,
     MatTableModule,
     MatPaginatorModule,

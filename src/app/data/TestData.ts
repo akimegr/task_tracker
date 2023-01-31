@@ -33,7 +33,7 @@ export class TestData {
       id: 2,
       title: 'Залить бензин2',
       priority: TestData.priority[1],
-      completed: false,
+      completed: true,
       category: TestData.categories[4],
       date: new Date('2019-04-10')
     },
@@ -49,7 +49,6 @@ export class TestData {
       id: 4,
       title: 'Залить бензин4',
       completed: false,
-      category: TestData.categories[3],
       date: new Date('2019-04-10')
     }
   ]
