@@ -10,6 +10,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSliderModule} from '@angular/material/slider'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditTaskDialogComponent } from './dialog/edit-task-dialog/edit-task-dialog.component';
 
 
 
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     CategoriesComponent,
     TasksComponent,
+    EditTaskDialogComponent,
   ],
   imports: [
     BrowserModule,

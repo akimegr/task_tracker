@@ -1,3 +1,7 @@
 .pointer {
   cursor: pointer;
 }
+
+.active {
+  background-image: linear-gradient(195deg, #3c00ff 0%, #0e2bb0 100%);
+}

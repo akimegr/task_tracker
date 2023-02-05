@@ -3,6 +3,10 @@
   color: green;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .novalue {
   color: #b7b7b7
 }
@@ -48,4 +52,7 @@
 }
 .done {
   width: 15%;
+}
+.not-found {
+  align-content: center;
 }

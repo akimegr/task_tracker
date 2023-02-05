@@ -11,13 +11,14 @@
 
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
-          <td mat-cell class="mb-0 text-sm num" [class.completed]="element.completed"
+          <td mat-cell class="mb-0 text-sm num pointer" [class.completed]="element.completed"
               *matCellDef="let element">{{element.id + 1}}</td>
         </ng-container>
 
         <ng-container matColumnDef="name">
           <th mat-header-cell mat-sort-header class = "name" *matHeaderCellDef>Name</th>
           <td mat-cell class="mb-0 text-sm name" [class.completed]="element.completed"
+              (click)="onClickTask(element)"
               *matCellDef="let element">{{element.title}}</td>
         </ng-container>
 
@@ -81,6 +82,7 @@
         </li>
       </ul>
     </div>
+    <div *ngIf="tasks && tasks.length == 0"><p class="not-found">Ничего не найден</p></div>
   </div>
 </div>
 

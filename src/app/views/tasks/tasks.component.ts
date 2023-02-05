@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Task} from "../../model/Task";
 import {DataHandlerService} from "../../services/data-handler.service";
 import {MatPaginator} from "@angular/material/paginator";
@@ -33,7 +33,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit, AfterViewInit{
-  tasks: Task[];
   displayedColumns: string[] = ['color','position', 'name', 'priority', 'category', 'date','done'];
   dataSource : MatTableDataSource<Task>;
   clickedRows = new Set<Task>();
@@ -41,13 +40,26 @@ export class TasksComponent implements OnInit, AfterViewInit{
   @ViewChild(MatPaginator, {static: false}) private  paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) private  sort: MatSort;
 
+  tasks: Task[];
+
+  @Output()
+  updatedTask = new EventEmitter<Task>();
+
+  @Input("tasks")
+   set setTasks(tasks: Task[]) {
+    this.tasks = tasks;
+    this.fillTable();
+  }
+
+
+
   constructor(private dataHandler: DataHandlerService) {
   }
 
   ngOnInit(): void {
-    this.dataHandler.taskSubject.subscribe(tasks => this.tasks=tasks);
+    // this.dataHandler.taskSubject.subscribe(tasks => this.tasks=tasks);
     this.dataSource =  new MatTableDataSource();
-    this.refreshTable();
+    this.fillTable();
   }
 
 
@@ -56,8 +68,12 @@ export class TasksComponent implements OnInit, AfterViewInit{
     this.addTableObjects();
   }
 
-  private refreshTable() {
-    console.log(this.sort)
+  private fillTable() {
+
+    if(!this.dataSource) {
+      return;
+    }
+
     this.dataSource.data = this.tasks;  //обновить источник даты
     this.addTableObjects();
 
@@ -98,6 +114,10 @@ export class TasksComponent implements OnInit, AfterViewInit{
 
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
+
+  onClickTask(task: Task) {
+    this.updatedTask.emit(task)
   }
 }
 
