@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Task} from "../../model/Task";
 import {DataHandlerService} from "../../services/data-handler.service";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatSort} from "@angular/material/sort";
+import {MatTableDataSource} from "@angular/material/table";
 
 
 
@@ -29,17 +32,58 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
-export class TasksComponent implements OnInit{
+export class TasksComponent implements OnInit, AfterViewInit{
   tasks: Task[];
   displayedColumns: string[] = ['color','position', 'name', 'priority', 'category', 'date','done'];
-  dataSource : Task[];
-  clickedRows = new Set<PeriodicElement>();
+  dataSource : MatTableDataSource<Task>;
+  clickedRows = new Set<Task>();
+
+  @ViewChild(MatPaginator, {static: false}) private  paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) private  sort: MatSort;
 
   constructor(private dataHandler: DataHandlerService) {
   }
 
   ngOnInit(): void {
     this.dataHandler.taskSubject.subscribe(tasks => this.tasks=tasks);
+    this.dataSource =  new MatTableDataSource();
+    this.refreshTable();
+  }
+
+
+  //уже всё проиниц
+  ngAfterViewInit(): void {
+    this.addTableObjects();
+  }
+
+  private refreshTable() {
+    console.log(this.sort)
+    this.dataSource.data = this.tasks;  //обновить источник даты
+    this.addTableObjects();
+
+    // @ts-ignore
+    this.dataSource.sortingDataAccessor = (task, colName) => {
+      switch (colName) {
+        case 'position': {
+          return task.id;
+        }
+        case 'name': {
+          return task.title;
+        }
+        case 'priority': {
+          return task.priority ? task.priority.id : null;
+        }
+        case 'category': {
+          return task.category ? task.category.id : null;
+        }
+        case 'date': {
+          return task.date ? task.date : null;
+        }
+        case 'done': {
+          return task.completed;
+        }
+      }
+    }
   }
 
   getTaskColor(task:Task): string {
@@ -48,6 +92,12 @@ export class TasksComponent implements OnInit{
 
   taskComplete(task: Task) {
     task.completed = !task.completed
+  }
+
+  private addTableObjects() {
+
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 }
 
