@@ -1,7 +1,7 @@
-<mat-dialog-content>
+<mat-dialog-content class="mat-dialog-container">
   <p mat-dialog-title>{{dialogTitle}}</p>
 
-  <mat-form-field>
+  <mat-form-field class="mat-form-field">
     <mat-label>Название(обязательно)</mat-label>
     <input
       #inputTitle
@@ -16,6 +16,17 @@
       <mat-icon>clear</mat-icon>
 
     </button>
+  </mat-form-field>
+
+  <mat-form-field class="mat-form-field">
+    <mat-label>Укажите категорию</mat-label>
+
+    <mat-select [(ngModel)]="tmpCategory">
+      <mat-option [value]="null" >Без категории</mat-option>
+      <mat-option *ngFor="let cat of categories" [value]="cat" >{{cat.title}}</mat-option>
+
+    </mat-select>
+
   </mat-form-field>
 
 </mat-dialog-content>
