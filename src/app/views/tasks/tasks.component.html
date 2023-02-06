@@ -18,7 +18,7 @@
         <ng-container matColumnDef="name">
           <th mat-header-cell mat-sort-header class = "name" *matHeaderCellDef>Name</th>
           <td mat-cell class="mb-0 text-sm name" [class.completed]="element.completed"
-              (click)="onClickTask(element)"
+              (click)="onClickTaskEdit(element)"
               *matCellDef="let element">{{element.title}}</td>
         </ng-container>
 

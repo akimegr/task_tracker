@@ -49,4 +49,8 @@ export class DataHandlerService {
   searchTask(task: Task) {
     return this.taskDaoArray.searchTask(task)
   }
+
+  updateTask(task: Task) {
+    return this.taskDaoArray.update(task);
+  }
 }

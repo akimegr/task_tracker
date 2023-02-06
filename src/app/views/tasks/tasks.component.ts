@@ -4,6 +4,8 @@ import {DataHandlerService} from "../../services/data-handler.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
+import { MatDialog } from '@angular/material/dialog';
+import {EditTaskDialogComponent} from "../../dialog/edit-task-dialog/edit-task-dialog.component";
 
 
 
@@ -53,7 +55,7 @@ export class TasksComponent implements OnInit, AfterViewInit{
 
 
 
-  constructor(private dataHandler: DataHandlerService) {
+  constructor(private dataHandler: DataHandlerService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -116,8 +118,17 @@ export class TasksComponent implements OnInit, AfterViewInit{
     this.dataSource.paginator = this.paginator;
   }
 
-  onClickTask(task: Task) {
-    this.updatedTask.emit(task)
+  onClickTaskEdit(task: Task) {
+    const dialogRef = this.dialog.open(EditTaskDialogComponent, {data:
+    [task, 'Редактирование задачи'], autoFocus:false});
+    dialogRef.afterClosed().subscribe(result=>{
+      if (result as Task) {
+        this.updatedTask.emit(task);
+        return;
+      }
+    })
+
+    // this.updatedTask.emit(task)
   }
 }
 

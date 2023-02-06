@@ -9,8 +9,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSliderModule} from '@angular/material/slider'
+import {MatDialogModule} from '@angular/material/dialog'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditTaskDialogComponent } from './dialog/edit-task-dialog/edit-task-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -30,9 +36,19 @@ import { EditTaskDialogComponent } from './dialog/edit-task-dialog/edit-task-dia
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    // MatButtonModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
+  entryComponents: [
+    EditTaskDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
